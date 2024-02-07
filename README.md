@@ -1,5 +1,6 @@
 # Rawa
-( Rawa Project ) Smart irrigation using artificial intelligence techniques
+##Rawa Project
+Smart irrigation using artificial intelligence techniques
 
 That sounds like an interesting and comprehensive system! By combining artificial intelligence techniques such as machine learning and computer vision with IoT technologies and appropriate sensors, you have created a powerful solution for plant irrigation, water conservation, plant identification, and disease detection.
 
