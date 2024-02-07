@@ -1,0 +1,361 @@
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+<style>
+body {
+    padding-top: 90px;
+}
+
+.panel-login>.panel-heading {
+	color: #00415d;
+	background-color: #fff;
+	border-color: #fff;
+	text-align:center;
+}
+.panel-login>.panel-heading a{
+	text-decoration: none;
+	color: #666;
+	font-weight: bold;
+	font-size: 15px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login>.panel-heading a.active{
+	color: #029f5b;
+	font-size: 18px;
+}
+
+.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+	height: 45px;
+	border: 1px solid #ddd;
+	font-size: 16px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login input:hover,
+.panel-login input:focus {
+	outline:none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border-color: #ccc;
+}
+.btn-login {
+	background-color: #3c8b52;
+	outline: none;
+	color: #fff;
+	font-size: 20px;
+	height: auto;
+	width: 200px;
+    margin-left: 20px;
+	border-radius: 15px;
+	
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+
+.btn-login:hover,
+.btn-login:focus {
+	color: #fff;
+	background-color: #49bc6b;
+	
+}
+.forgot-password {
+	text-decoration: underline;
+	color: #30b7b9;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+	text-decoration: underline;
+	color: #666;
+}
+
+.btn-register {
+	background-color: #3c8b52;
+	outline: none;
+	color: #fff;
+	font-size: 20px;
+	height: auto;
+	width: 200px;
+border-radius: 15px;
+	margin-left: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+.btn-register:hover,
+.btn-register:focus {
+	color: #fff;
+	background-color: #49bc6b;
+	
+}
+
+.panel-body{
+
+    background-color: #f0faef;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+.back_btn{
+    font-weight: bold; 
+    background-color: transparent;
+    font-size: 16px;
+    margin-bottom: 140px;
+    margin-right: 50px;
+  color: #3c8b52; /* Set the desired text color */
+  border: none; /* Remove the button border */
+}
+
+.back_btn::before {
+   
+  content: "\2190"; /* Unicode arrow character - Leftwards Arrow */
+  display: inline-block;
+  margin-right: 5px; /* Adjust the spacing between the arrow and text */
+}
+
+.alert {
+  width: 500px;
+  margin-left: 320px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color: #f5dadc;
+  color: #cf2233;
+  border: 1px solid #f5dadc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+}
+
+.alert.alert-sm {
+  font-size: 14px;
+  padding: 5px;
+}
+
+.message-success {
+	width: 460px;
+	margin-left: 340px;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+	background-color: #d3f0da;
+	color: #3c8b52;
+	border: 1px solid #d3f0da;
+	padding: 5px;
+	margin-bottom: 10px;
+	border-radius: 15px;
+  }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+	
+	<button class='back_btn' onclick="backToHome()">back</button>
+
+
+    	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" class="active" id="login-form-link">Sign In</a>
+							</div>
+							<div class="col-xs-6">
+								<a href="#" id="register-form-link">Sign Up</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="login-form" action="https://phpoll.com/login/process" method="post" role="form" style="display: block;">
+									<div class="form-group">
+										<input type="text" name="username" id="login-username" tabindex="1" class="form-control" placeholder="Username" value="">
+									</div>
+									<div class="form-group">
+                                        <input type="password" name="password" id="login-password" tabindex="2" class="form-control" placeholder="Password">
+									</div>
+									<div class="form-group text-center">
+										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+										<label for="remember"> Remember Me</label>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+								<form id="register-form" action="https://phpoll.com/register/process" method="post" role="form" style="display: none;">
+									<div class="form-group">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+									</div>
+									<div class="form-group">
+										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+									</div>
+									<div class="form-group">
+										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+	</div>
+
+    
+<script>
+
+	function backToHome() {
+		window.location.href = '/';
+	}
+	$(function() {
+		$('#login-form-link').click(function(e) {
+		  $("#login-form").delay(100).fadeIn(100);
+		  $("#register-form").fadeOut(100);
+		  $('#register-form-link').removeClass('active');
+		  $(this).addClass('active');
+		  e.preventDefault();
+		});
+	  
+		$('#register-form-link').click(function(e) {
+		  $("#register-form").delay(100).fadeIn(100);
+		  $("#login-form").fadeOut(100);
+		  $('#login-form-link').removeClass('active');
+		  $(this).addClass('active');
+		  e.preventDefault();
+		});
+	  
+		$('#login-form').submit(function(e) {
+		  var username = $('#login-username').val();
+		  var password = $('#login-password').val();
+	  
+		  // Perform your login validation here
+		  // For demonstration purposes, assume valid username is 'admin' and password is 'password'
+		  var validUsername = 'admin';
+		  var validPassword = 'password';
+	  
+		  if (username.trim() === '' || password.trim() === '') {
+			showMessage('Please enter both username and password.');
+			e.preventDefault();
+		  } else if (username !== validUsername || password !== validPassword) {
+			showMessage('Incorrect username or password.');
+			e.preventDefault();
+		  } else {
+			// Redirect to the dashboard page
+			window.location.href = "dashboard.html";
+			e.preventDefault();
+		  }
+		});
+	  
+		$('#register-form').submit(function(e) {
+		  var username = $('#username').val();
+		  var password = $('#password').val();
+		  var confirmPassword = $('#confirm-password').val();
+	  
+		  // Perform your registration validation here
+		  // For demonstration purposes, assume the account already exists with username 'admin'
+		  var existingUsername = 'admin';
+	  
+		  if (username.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
+			showMessage('Please fill in all the fields.');
+			e.preventDefault();
+		  } else if (username === existingUsername) {
+			showMessage('An account with this username already exists.');
+			e.preventDefault();
+		  } else if (password !== confirmPassword) {
+			showMessage('Passwords don\'t match.');
+			e.preventDefault();
+		  } else {
+			// Registration logic...
+			// You can perform the registration process here
+			// For demonstration purposes, simply show a success message
+			showMessage_success('registration successfully!');
+			e.preventDefault();
+		  }
+		});
+	  
+		function showMessage(message) {
+		  // Create a new element to display the message
+		  var alertElement = $('<div>', {
+			class: 'alert alert-danger alert-sm',
+			text: message
+		  });
+	  
+
+		  
+		  // Append the alert element to the container
+		  $('.container').append(alertElement);
+	  
+		  // Automatically remove the alert after 4 seconds
+		  setTimeout(function() {
+			alertElement.remove();
+		  }, 4000);
+		}
+
+
+		function showMessage_success(message) {
+			// Create a new element to display the message
+			var alertElement = $('<div>', {
+			  class: 'message-success',
+			  text: message
+			});
+
+			
+		  // Append the alert element to the container
+		  $('.container').append(alertElement);
+	  
+		  // Automatically remove the alert after 4 seconds
+		  setTimeout(function() {
+			alertElement.remove();
+		  }, 4000);
+		}
+
+
+
+	  });
+</script>
+
+</body>
+</html>

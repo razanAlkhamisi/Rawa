@@ -1,0 +1,535 @@
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sensor Data Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-pzjw8J+oa7C1pXLs/WLLCqj9lUB63t5SxD2tFaPi8Q/1r4N7txDlO3QC21tZI8wK" crossorigin="anonymous">
+
+    <style>
+        .label-text {
+            /* Your styles for the "Plant:" text */
+            font-weight: bold;
+            color: green;
+            /* Add more styles as needed */
+        }
+        /* ... Your existing styles ... */
+        .spinner-container {
+            display: inline-block;
+            position: relative;
+        }
+        /* Add styles for the spinner */
+        .spinner {
+            display: none;
+            margin: 0 auto;
+            align-content: center;
+            width: inherit;
+            height: inherit;
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+
+    <style>
+        /* ... Your existing styles ... */
+
+        .result-label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .model-results {
+            margin-top: 15px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .upload-container {
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .upload-container h2 {
+            color: #508e58;
+        }
+
+        #imageUploadForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #imageFileContainer {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        #imageFile {
+            margin-right: 10px;
+        }
+
+        #selectedImageBox {
+            margin-top: 20px;
+        }
+
+        #selectedImage {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #508e58;
+            border-radius: 4px;
+            display: none; /* Hide by default */
+        }
+
+        button {
+            margin-top: 10px;
+            background-color: #508e58;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3c7049;
+        }
+    </style>
+
+
+
+
+    <style>
+        /* CSS styling for the chart */
+
+        .header {
+            background-color: #f0faef;
+            color: #508e58;
+            padding: 20px;
+            text-align: center;
+        }
+        .chart-container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .v{
+            margin-left: 1200px;
+            margin-top: 40px;
+            color: #1d6737;
+            background-color:rgb(242, 245, 247) ;
+            font-size: 18px;
+            border-radius: 20px;
+            width: 200px;
+            padding: 6px;
+            text-align: center;
+        }
+
+        .v:hover {
+            background-color: #deefe4; /* Add a hover effect when the dropdown is hovered */
+        }
+
+        .v select {
+            border-radius: 22px;
+            font-size: 14px;
+            color: #1d6737;
+            padding: 2px;
+        }
+
+        .v option {
+            border-radius: 22px;
+            font-size: 14px;
+            color: #1d6737;
+        }
+
+        .back_btn {
+            font-weight: bold;
+            background-color: transparent;
+            font-size: 16px;
+            width: 100px;
+            margin-right: 1300px;
+            color: #3c8b52; /* Set the desired text color */
+            border: none; /* Remove the button border */
+        }
+
+        .back_btn::before {
+            content: "\2190"; /* Unicode arrow character - Leftwards Arrow */
+            display: inline-block;
+            margin-right: 5px; /* Adjust the spacing between the arrow and text */
+        }
+
+        .irrigation-table {
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        .irrigation-table th,
+        .irrigation-table td {
+            padding: 8px;
+        }
+
+        .irrigation-table th {
+            background-color: #f0faef;
+            color: #508e58;
+            text-align: left;
+        }
+
+        .irrigation-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #f0faef;
+            color: #508e58;
+            padding: 20px;
+            text-align: center;
+        }
+        .chart-container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .v{
+            margin-left: 1200px;
+            margin-top: 40px;
+            color: #1d6737;
+            background-color:rgb(242, 245, 247) ;
+            font-size: 18px;
+            border-radius: 20px;
+            width: 200px;
+            padding: 6px;
+            text-align: center;
+
+        }
+
+
+        .v:hover {
+            background-color: #deefe4; /* Add a hover effect when the dropdown is hovered */
+        }
+
+        .v select {
+            border-radius: 22px;
+            font-size: 14px;
+            color: #1d6737;
+            padding: 2px;
+        }
+
+        .v option {
+            border-radius: 22px;
+            font-size: 14px;
+            color: #1d6737;
+
+
+        }
+
+
+        .back_btn{
+            font-weight: bold;
+            background-color: transparent;
+            font-size: 16px;
+            width: 100px;
+            margin-right: 1300px;
+            color: #3c8b52; /* Set the desired text color */
+            border: none; /* Remove the button border */
+        }
+
+        .back_btn::before {
+
+            content: "\2190"; /* Unicode arrow character - Leftwards Arrow */
+            display: inline-block;
+            margin-right: 5px; /* Adjust the spacing between the arrow and text */
+        }
+        .irrigation-table {
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        .irrigation-table th,
+        .irrigation-table td {
+            padding: 8px;
+            color: #3c8b52;
+        }
+
+        .irrigation-table th {
+            background-color: #f0faef;
+            color: #508e58;
+            text-align: left;
+        }
+
+        .irrigation-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+<div class="header">
+
+    <button class='back_btn' onclick="backToHome()">back</button>
+
+    <h1>Sensor Data Chart</h1></div>
+<div class="v">
+    <label  for="time-period-select">Time Period:</label>
+    <select  id="time-period-select" onchange="updateChart()">
+        <option value="days">Days</option>
+        <option value="months">Months</option>
+    </select>
+</div>
+<div class="chart-container">
+    <canvas id="temperature-chart"></canvas>
+</div>
+<div class="chart-container">
+    <canvas id="humidity-chart"></canvas>
+</div>
+<div class="chart-container">
+    <canvas id="soil-moisture-chart"></canvas>
+</div>
+<table class="irrigation-table" id="irrigation-table">
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>Timing</th>
+        <th>Should Watering</th>
+        <th>Watering Probability</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Add rows dynamically using JavaScript -->
+    </tbody>
+</table>
+
+
+<div class="upload-container">
+    <h2>Upload Image</h2>
+    <form id="imageUploadForm" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div id="imageFileContainer">
+            <input type="file" name="imageFile" id="imageFile" accept="image/*" required >
+        </div>
+        <div id="selectedImageBox">
+            <img id="selectedImage" src="#" alt="Selected Image">
+        </div>
+        <button id="uploadButton" type="button" onclick="uploadImage()">
+                        <span class="spinner-container">
+        <span class="spinner" id="spinner"></span>
+    </span>
+
+            Upload</button>
+    </form>
+    <!-- Container for results -->
+    <div id="resultsContainer"></div>
+</div>
+
+
+<script src="https://apis.google.com/js/api.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script src="{% static "js/detection.js" %}"></script>
+
+<script>
+    function backToHome() {
+        window.location.href = '/';
+    }
+
+
+
+    // Initialize the Google API client
+    gapi.load('client', startApp);
+
+    function startApp() {
+        // Fetch data and populate the charts
+        fetchDataAndPopulateCharts();
+    }
+
+
+    // Function to fetch data from Google Sheets and populate the charts
+    function fetchDataAndPopulateCharts() {
+        {#var spreadsheetId = '1VE1niG3jVtyJ4S-9GBw9aqwyd_mMyV0hX272U4SWCJw';#}
+        var spreadsheetId = '1uzMY-p0_bYvqD3Sxmsl9hrr7xTa5CTU_khxJVn-2Bio';
+
+        // Replace with the range you want to access (e.g., 'Sheet1!A1:C3')
+        var range =  'Sheet1!A2:C3';
+
+
+        var url = 'https://docs.google.com/spreadsheets/d/' + spreadsheetId + '/gviz/tq?tqx=out:csv';
+
+        fetch(url)
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (data) {
+                // Process the CSV data as needed
+                var lines = data.split('\n');
+                var values = lines.map(function (line) {
+                    return line.replace(/"/g, '').split(',');
+                });
+
+                if (values && values.length > 0) {
+                    var temperatureData = values.map(row => parseFloat(row[1]));
+                    var humidityData = values.map(row => parseFloat(row[2]));
+                    var soilMoistureData = values.map(row => parseFloat(row[3]));
+
+                    // Update the chart data
+                    temperatureChart.data.datasets[0].data = temperatureData;
+                    humidityChart.data.datasets[0].data = humidityData;
+                    soilMoistureChart.data.datasets[0].data = soilMoistureData;
+
+                    // Update the chart
+                    temperatureChart.update();
+                    humidityChart.update();
+                    soilMoistureChart.update();
+                }
+            }, function(error) {
+                console.error('Error fetching data from Google Sheets: ', error);
+            });
+    }
+
+
+
+
+
+    var irrigationData = {{ data | safe }}
+
+
+    // Populate the irrigation table
+    var irrigationTable = document.getElementById('irrigation-table');
+    var irrigationTableBody = irrigationTable.getElementsByTagName('tbody')[0];
+
+    for (var i = 0; i < irrigationData.length; i++) {
+        var row = document.createElement('tr');
+
+
+        var dateCell = document.createElement('td');
+        dateCell.textContent = irrigationData[i].DATE;
+        row.appendChild(dateCell);
+
+        var timingCell = document.createElement('td');
+        timingCell.textContent = irrigationData[i].TIME;
+        row.appendChild(timingCell);
+
+        var statusCell = document.createElement('td');
+        statusCell.textContent = irrigationData[i]['SHOULD WATER'];
+        row.appendChild(statusCell);
+
+        var probability = document.createElement('td');
+        probability.textContent = `${irrigationData[i].PROBABILITY} %`;
+        row.appendChild(probability);
+
+        irrigationTableBody.appendChild(row);
+    }
+
+    // Hide the irrigation table if there are no irrigation events
+    if (irrigationData.length === 0) {
+        irrigationTable.style.display = 'none';
+    }
+
+    // Sample data for the charts (replace with your sensor data)
+    var temperatureData =  temperatureData;// Replace with actual data for
+    var humidityData = humidityData; // Replace with actual data for 3 months
+    var soilMoistureData = soilMoistureData; // Replace with actual data for 3 months
+
+
+    // Temperature chart
+    var temperatureCtx = document.getElementById("temperature-chart").getContext("2d");
+    var temperatureChart = new Chart(temperatureCtx, {
+        type: "line",
+        data: {
+            labels: ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri","Sat"],
+            datasets: [{
+                label: "Temperature",
+                data: temperatureData,
+                backgroundColor: "rgba(54, 162, 235, 0.5)",
+                borderColor: "rgba(54, 162, 235, 0.5)"
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+    // Humidity chart
+    var humidityCtx = document.getElementById("humidity-chart").getContext("2d");
+    var humidityChart = new Chart(humidityCtx, {
+        type: "line",
+        data: {
+            labels: ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri","Sat"],
+            datasets: [{
+                label: "Humidity",
+                data: humidityData,
+                backgroundColor: "rgba(255, 99, 132, 0.5)",
+                borderColor: "rgba(255, 99, 132, 0.5)"
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+    // Soil moisture chart
+    var soilMoistureCtx = document.getElementById("soil-moisture-chart").getContext("2d");
+    var soilMoistureChart = new Chart(soilMoistureCtx, {
+        type: "line",
+        data: {
+            labels: ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri","Sat"],
+            datasets: [{
+                label: "Soil Moisture",
+                data: soilMoistureData,
+                backgroundColor: "rgba(75, 192, 192, 0.5)",
+                borderColor: "rgba(75, 192, 192, 0.5)"
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+    // Function to update the chart based on the selected time period
+    function updateChart() {
+        var selectedValue = document.getElementById("time-period-select").value;
+
+        if (selectedValue === "days") {
+            // Update chart data for days
+            temperatureChart.data.labels = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri","Sat"];
+            humidityChart.data.labels = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri","Sat"];
+            soilMoistureChart.data.labels = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri","Sat"];
+        } else if (selectedValue === "months") {
+            // Update chart data for months
+            temperatureChart.data.labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            humidityChart.data.labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            soilMoistureChart.data.labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        }
+
+        temperatureChart.update();
+        humidityChart.update();
+        soilMoistureChart.update();
+    }
+</script>
+</body>
+</html>
+

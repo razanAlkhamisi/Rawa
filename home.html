@@ -1,0 +1,338 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <title>Home Page</title>
+  <style>
+    body {
+        font-family: "Poppins", Arial, sans-serif;      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+    }
+    
+    .navbar {
+      background-color: #fdfefe;
+      border-bottom: 2px solid #acb5ab;
+      
+    }
+    
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .navbar li {
+      margin-right: 20px;
+    }
+    
+    .navbar li a {
+      color: #44754b;
+      text-decoration: none;
+      font-size: 18px;
+      
+    }
+    
+    .navbar li a:hover {
+      color: #6c8e6f;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .header h1 {
+        font-family: "Poppins", Arial, sans-serif;
+      color: #508e58;
+      font-size: 32px;
+    }
+    
+    .content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    
+    .content p {
+      margin-bottom: 20px;
+    }
+    
+  
+
+    
+    .feature-square {
+  display: flex;
+  
+  align-items: center;
+  margin-top: 20px;
+}
+
+.feature {
+  width: 350px;
+  height: 350px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  align-items: center;
+  text-align: center;
+
+}
+    .feature h3 {
+        font-family: "Poppins", Arial, sans-serif;
+      color: #488250;
+      font-size: 21px;
+    }
+    
+    .feature p {
+      color: #3c8b52;
+      font-size: 12px;
+      font-weight:bolder;
+    }
+    
+   
+    .image-container {
+    
+  width: 1000px;
+  height: 700px;
+  position: relative;
+  display: inline-block;
+  margin-top: -20px;
+  left: -288px;
+}
+.mainImg {
+  margin-left: 8px;
+  width: 1550px;
+  height: 730px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #c3cbc2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.image-button {
+  position: absolute;
+  bottom: 235px;
+  right: 540px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3c8b52;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.image-button:hover {
+  background-color: #639c6b; /* Change the background color of the hover state */
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 450px;
+  left: 230px;
+  color: #fff;
+  font-size: 17px;
+  text-align: left;
+
+  margin-bottom: -100px;
+
+}
+
+.feature-section2{
+
+margin-left: 550px;
+margin-top: -820px;
+}
+
+.feature-section{
+
+margin-left: 60px;
+margin-top: 100px;
+}
+
+
+
+
+.des{
+    font-weight:bolder;
+    font-size: 14px;
+
+  width: 900px;
+  height: 250px;
+  color: #508e58;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 200px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-left: 230px;
+
+}
+.des:hover {
+  color:#62a56b;
+  transform: scale(1.1); /* Increase the size by 10% */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+.Img{
+width: 70px;
+align-items: center;
+
+}
+.ad{
+    
+    margin-left: 70px;
+    color: #508e58;
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 30px;
+
+}
+.titel{
+    margin-left: -20px;
+}
+
+.det{
+    
+    margin-left: 20px;
+    margin-top: 25px;
+}
+.class-feature{
+    
+  width: 1000px;
+  height: 1000px;
+  border-radius: 10px;
+  margin-left: 200px;
+  margin-top: 110px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.bottom{
+    background-color: rgba(47, 86, 49, 0.5); 
+    margin-top: 200px;
+   color: #14600e;
+    width: 100%;
+    height: 250px;
+}
+.Img-location{
+    margin-left: 20px;
+    margin-top: 10px;
+width: 160px;
+height: 40px;
+
+}
+.feature:hover {
+  color:#62a56b;
+  transform: scale(1.1); /* Increase the size by 10% */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+.logo{
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+    margin-top: 5px;
+
+}
+.nav{
+    margin-bottom: 10px;
+    margin-top: -40px;
+   
+}
+
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <img class="logo" src="{% static 'pages/images/logo.png'%}">
+    <div class="nav">
+    <ul >
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Features</a></li>
+    </ul>
+  </div>
+</div>
+
+  <div class="container">
+   
+    
+      <figure class="image-container">
+        
+            
+        <img class="mainImg" src="{% static 'pages/images/home_image.png' %}" alt="home_image">
+        <figcaption class="image-caption">
+            <h2 class="titel">Rawa System</h2>
+Using our understanding of artificial intelligence technologies, we are building a system that enhances green spaces and increases the quality of harvested plants.
+    IoT and computer vision are used to manage and control agriculture, as well as track the status of crops online.
+    By implementing these techniques, farmers can increase agricultural yields, reduce their environmental impact, and contribute to the sustainable development of water conservation.</figcaption>
+            
+        <button class="image-button"  id="imageButton">Let's get started</button>
+      </div>
+      </figure>
+    
+        <div class="des">
+            <h2>Detail of the device:</h2>
+            <p class="det">The tool is a sensor that gathers information from a plant's environment and inputs it into a system created using artificial intelligence methods so that the plant receives the proper care.
+            </p>
+          </div>
+
+          <div class="class-feature">
+          <p class="ad">Advantages:</p>
+        </p>
+    <div class="feature-section">
+      <div class="feature">
+        <img class="Img" src="{% static "pages/images/Save water.png" %}" alt="Save water">
+        <h3>Save water</h3>
+        <p>Using sensors to monitor plant health, the time and amount of watering can be calculated.
+            Use these methods when watering to ensure the plant gets the right amount of water and to prevent overwatering, which can cause water waste and plant health problems.</p>
+      </div>
+      <div class="feature">
+        <img class="Img" src="{% static "pages/images/Prolonging the life of the plant.png" %}" alt="Prolonging the life of the plant">
+        <h3>Prolonging the life of the plant</h3>
+        <p>This is done by using sensors to determine the appropriate amounts of water, detecting rot or any abnormal shape of the plant, and alerting you to that.</p>
+      </div>
+    </div>
+    
+  
+
+    <div class="feature-section2">
+      <div class="feature">
+        <img class="Img" src="{% static 'pages/images/logo.png' %}" alt="Logo">
+        <h3>Crop improvement</h3>
+        <p>Through irrigation management, ensuring effective irrigation practices to meet the water needs of the plant, also monitoring the moisture levels of the soil, and providing irrigation during periods of drought to maintain ideal growing conditions and enhance the productivity and quality of the plants crops.</p>
+      </div>
+      <div class="feature">
+        <img class="Img" src="{% static 'pages/images/Alerts .png' %}" alt="Alerts">
+        <h3>Send alerts</h3>
+        <p>Alerts will be delivered to you in response when artificial intelligence techniques spot any unusual changes in the plant.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom"> <img class="Img-location" src="{% static 'pages/images/location.png' %}" alt="location"></div>
+</div>
+
+<script>
+  document.getElementById("imageButton").addEventListener("click", function() {
+    window.location.href = "sign/";
+  });
+</script>
+
+</body>
+</html>
+
+
+
