@@ -62,41 +62,6 @@ By integrating **Machine Learning**, **Computer Vision**, **IoT sensors**, and a
 [ Web Dashboard / User Interface ]
 ```
 
----
-
-## 🧑‍💻 Installation & Setup
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/yourusername/smart-irrigation-ai.git
-   cd smart-irrigation-ai
-   ```
-
-2. **Install Python dependencies**
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Configure Raspberry Pi**
-
-   * Connect sensors to GPIO pins.
-   * Install `paho-mqtt` or `requests` to send data to the Django API.
-   * Run the Pi data collection script.
-
-4. **Run migrations & start the server**
-
-   ```bash
-   python manage.py migrate
-   python manage.py runserver
-   ```
-
-5. **Access the web dashboard**
-   Go to [`http://127.0.0.1:8000/`](http://127.0.0.1:8000/) or your server IP.
-
----
-
 ## 🌾 Benefits
 
 * 💧 Smart water management for sustainability
