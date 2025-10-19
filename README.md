@@ -31,7 +31,7 @@ By integrating **Machine Learning**, **Computer Vision**, **IoT sensors**, and a
 
   * Displays live sensor readings and irrigation status.
   * Allows manual or automatic irrigation control.
-  * Shows AI insights, disease alerts, and plant recommendations.
+  * Shows AI insights, disease alerts.
 
 ---
 
@@ -43,8 +43,6 @@ By integrating **Machine Learning**, **Computer Vision**, **IoT sensors**, and a
 | **Backend**       | Django, Python, REST API                                                  |
 | **Frontend**      | HTML, CSS, JavaScript (or React)                                          |
 | **AI Models**     | ML for irrigation prediction, CV for plant & disease detection            |
-| **Database**      | SQLite / PostgreSQL                                                       |
-| **Communication** | MQTT / HTTP requests between Pi and server                                |
 
 ---
 
@@ -74,9 +72,10 @@ By integrating **Machine Learning**, **Computer Vision**, **IoT sensors**, and a
 ## 🔮 Future Enhancements
 
 * Weather-forecast API integration
-* Mobile app for remote monitoring
-* Real-time notifications (SMS / Email)
-* Reinforcement learning for adaptive irrigation schedules
+* Web application for remote monitoring
+* Machine learning for adaptive irrigation schedules
+* Computer vision for detecting plant type, identifying diseases, and classifying their kind
+
 
 ---
 
