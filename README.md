@@ -1,12 +1,12 @@
 # Rawa
-#Rawa Project
 
 # 🌿 Smart Irrigation System Using Artificial Intelligence
 
 ## 🚀 Overview
 
-**Smart Irrigation System** is an **AI-powered, IoT-enabled Django web platform** designed to automate and optimize irrigation.
-By integrating **Machine Learning**, **Computer Vision**, **IoT sensors**, and a **Raspberry Pi controller**, the system delivers real-time monitoring, precise watering decisions, and early disease detection — all from a single web dashboard.
+Rawa is an AI-powered, IoT-enabled Django platform designed to revolutionize modern agriculture. Instead of traditional fixed-schedule watering, Rawa "listens" to the soil using smart sensors and "sees" the plants through Computer Vision.
+
+By integrating Machine Learning, IoT sensors, and a Raspberry Pi controller, the system delivers real-time monitoring, precise watering decisions, and acts as a digital doctor by detecting early signs of plant disease—all managed through a single, intuitive web dashboard. It’s about saving water, saving time, and growing healthier crops through a data-driven approach.
 
 ---
 
