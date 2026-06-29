@@ -57,16 +57,16 @@ The AI-powered computer vision module analyzes uploaded leaf images to:
 
 ### 🌱 Healthy Plant
 
-![Healthy Plant](<img width="298" height="170" alt="not_effected" src="https://github.com/user-attachments/assets/abfa8e5a-738b-4101-a1fb-4f8276e3fb31" />
-)
+<img width="298" height="170" alt="not_effected" src="https://github.com/user-attachments/assets/abfa8e5a-738b-4101-a1fb-4f8276e3fb31" />
+
 
 ---
 
 ### 🍂 Diseased Plant
 
-![Diseased Plant](<img width="293" height="167" alt="effected" src="https://github.com/user-attachments/assets/a03aaf47-598f-48ed-88cf-ae4ac9643eec" />
+<img width="293" height="167" alt="effected" src="https://github.com/user-attachments/assets/a03aaf47-598f-48ed-88cf-ae4ac9643eec" />
 
-)
+
 
 
 ---
