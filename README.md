@@ -85,7 +85,8 @@ The AI-powered computer vision module analyzes uploaded leaf images to:
 [ Web Dashboard / User Interface ]
 ```
 
-<img width="482" height="537" alt="1" src="https://github.com/user-attachments/assets/55bcccc1-94ef-4117-857b-ade648b3b53e" />
+<img width="656" height="406" alt="11" src="https://github.com/user-attachments/assets/5423bf5a-b7ce-4dc6-a4f5-4bc07fd5bd07" />
+
 
 ---
 ## 🌾 Benefits
