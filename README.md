@@ -46,6 +46,30 @@ By integrating Machine Learning, IoT sensors, and a Raspberry Pi controller, the
 
 ---
 
+
+## 🖼️ Computer Vision Demo
+
+The AI-powered computer vision module analyzes uploaded leaf images to:
+
+- 🌿 Identify the plant species.
+- 🔍 Detect whether the plant is healthy or diseased.
+- ⚠️ Classify the detected disease (when applicable).
+
+### 🌱 Healthy Plant
+
+![Healthy Plant](<img width="298" height="170" alt="not_effected" src="https://github.com/user-attachments/assets/abfa8e5a-738b-4101-a1fb-4f8276e3fb31" />
+)
+
+---
+
+### 🍂 Diseased Plant
+
+![Diseased Plant](<img width="293" height="167" alt="effected" src="https://github.com/user-attachments/assets/09fef95b-9ecb-4670-99e3-7a7116d1ba50" />
+)
+
+
+---
+
 ## 🧩 System Architecture
 
 ```
