@@ -46,11 +46,6 @@ By integrating Machine Learning, IoT sensors, and a Raspberry Pi controller, the
 
 ---
 
-<img width="482" height="537" alt="1" src="https://github.com/user-attachments/assets/55bcccc1-94ef-4117-857b-ade648b3b53e" />
-
-
----
-
 
 ## 🖼️ Computer Vision Demo
 
@@ -90,6 +85,9 @@ The AI-powered computer vision module analyzes uploaded leaf images to:
 [ Web Dashboard / User Interface ]
 ```
 
+<img width="482" height="537" alt="1" src="https://github.com/user-attachments/assets/55bcccc1-94ef-4117-857b-ade648b3b53e" />
+
+---
 ## 🌾 Benefits
 
 * 💧 Smart water management for sustainability
