@@ -64,7 +64,8 @@ The AI-powered computer vision module analyzes uploaded leaf images to:
 
 ### 🍂 Diseased Plant
 
-![Diseased Plant](<img width="293" height="167" alt="effected" src="https://github.com/user-attachments/assets/09fef95b-9ecb-4670-99e3-7a7116d1ba50" />
+![Diseased Plant](<img width="293" height="167" alt="effected" src="https://github.com/user-attachments/assets/a03aaf47-598f-48ed-88cf-ae4ac9643eec" />
+
 )
 
 
