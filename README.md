@@ -46,6 +46,12 @@ By integrating Machine Learning, IoT sensors, and a Raspberry Pi controller, the
 
 ---
 
+### Dashboard Preview
+
+<img width="589" height="550" alt="dash" src="https://github.com/user-attachments/assets/c8ba7355-ce6f-42d6-b2c6-0e42047f2d9c" />
+
+
+---
 
 ## 🖼️ Computer Vision Demo
 
