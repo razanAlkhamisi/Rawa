@@ -57,7 +57,7 @@ The AI-powered computer vision module analyzes uploaded leaf images to:
 
 ### 🌱 Healthy Plant
 
-<img width="623" height="579" alt="safe" src="https://github.com/user-attachments/assets/fd6d092e-e346-4ebb-8d95-03e482a3a0b1" />
+<img width="587" height="549" alt="safe" src="https://github.com/user-attachments/assets/fd6d092e-e346-4ebb-8d95-03e482a3a0b1" />
 
 
 ---
